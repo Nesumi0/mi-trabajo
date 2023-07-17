@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../css/estilos.css';
 
-const ListaPokemon = [
+const ListaPokemon=[
   'https://pokeapi.co/api/v2/pokemon/1',
   'https://pokeapi.co/api/v2/pokemon/4',
   'https://pokeapi.co/api/v2/pokemon/7',
@@ -14,16 +14,16 @@ const ListaPokemon = [
   'https://pokeapi.co/api/v2/pokemon/14'
 ];
 
-function Card(props) {
+function Card(props){
   const [pokemon, setPokemon] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(props.link);
-        const data = await response.json();
-        setPokemon(data);
+        const respuesta = await fetch(props.link);
+        const info = await respuesta.json();
+        setPokemon(info);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
